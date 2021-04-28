@@ -25,6 +25,6 @@ function love.draw()
     -- redraws the game every frame
     -- called after love.update()
     love.graphics.circle("line", x_size/2,y_size/2, y_size/3)
-    love.graphics.arc("line", x_size/2,y_size/2 - 10, 100, 0.5, 3)
-    love.graphics.arc( "line", 100, 100, 100, 0, 2)
+    love.graphics.arc("line", "open", x_size/2,y_size/2 - 10, 100, 0.5, 3)
+    love.graphics.arc( "line", "open", 100, 100, 100, 0, 2)
 end
