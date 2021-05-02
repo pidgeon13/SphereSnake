@@ -6,9 +6,17 @@ window_attr = {resizable = false}
 x_size = 720
 y_size = 720
 
--- player position
+-- sphere attrubites
+sph_r = y_size/3 -- radius
+sph_centre_x, sph_centre_y = x_size/2, y_size/2 -- centre point
+num_lat_lines = 12 -- how many latitude lines to show
+
+-- player position, offset from centre
 x_pos = 0
 y_pos = 0
+
+require "control"
+require"latitude_line"
 
 function love.load()
     -- one-time initial set-up
@@ -24,7 +32,8 @@ end
 function love.draw()
     -- redraws the game every frame
     -- called after love.update()
-    love.graphics.circle("line", x_size/2,y_size/2, y_size/3)
-    love.graphics.arc("line", "open", x_size/2,y_size/2 - 10, 100, 0.5, 3)
-    love.graphics.arc( "line", "open", 100, 100, 100, 0, 2)
+    -- first, draw the enclosing circle
+    love.graphics.circle("line",sph_centre_x, sph_centre_y, sph_r)
+    -- next, draw latitude lines
+    DrawLatLines(num_lat_lines)
 end
